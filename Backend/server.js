@@ -5,13 +5,7 @@ const cors = require("cors");
 
 const app = express();
 const PORT = 5000;
-app.use(
-    cors({
-        origin: "https://sample-minicore-web-front.vercel.app",
-        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-        credentials: true, // Habilitar el envío de cookies a través de CORS
-    })
-); // Agrega esta línea para habilitar CORS
+app.use(cors()); // Agrega esta línea para habilitar CORS
 
 // Middleware
 app.use(bodyParser.json());
