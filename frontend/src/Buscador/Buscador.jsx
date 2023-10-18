@@ -17,10 +17,13 @@ const Buscador = () => {
 
     const handleBuscarClick = async () => {
         try {
-            const response = await axios.post("http://localhost:5000/buscar", {
-                fechaVenta,
-                fechaFin,
-            });
+            const response = await axios.post(
+                "https://sample-minicore-web-back.vercel.app",
+                {
+                    fechaVenta,
+                    fechaFin,
+                }
+            );
             setResultado(response.data);
         } catch (error) {
             console.error("Error al buscar el producto más vendido:", error);

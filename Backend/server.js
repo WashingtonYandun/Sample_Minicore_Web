@@ -5,7 +5,13 @@ const cors = require("cors");
 
 const app = express();
 const PORT = 5000;
-app.use(cors()); // Agrega esta línea para habilitar CORS
+app.use(
+    cors({
+        origin: "https://sample-minicore-web-front.vercel.app",
+        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+        credentials: true, // Habilitar el envío de cookies a través de CORS
+    })
+); // Agrega esta línea para habilitar CORS
 
 // Middleware
 app.use(bodyParser.json());
@@ -83,11 +89,9 @@ app.post("/buscar", async (req, res) => {
             },
         ]).then(async (resultados) => {
             if (resultados.length === 0) {
-                return res
-                    .status(404)
-                    .json({
-                        error: "No se encontraron ventas en el rango de fechas proporcionados",
-                    });
+                return res.status(404).json({
+                    error: "No se encontraron ventas en el rango de fechas proporcionados",
+                });
             }
 
             const productoMasVendido = resultados[0]._id;
