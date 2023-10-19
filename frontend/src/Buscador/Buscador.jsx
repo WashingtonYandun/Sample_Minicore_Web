@@ -18,7 +18,7 @@ const Buscador = () => {
     const handleBuscarClick = async () => {
         try {
             const response = await axios.post(
-                "https://minicore-back.onrender.com",
+                "https://sample-minicore-web-front.vercel.app/buscar",
                 {
                     fechaVenta,
                     fechaFin,
@@ -32,7 +32,7 @@ const Buscador = () => {
 
     return (
         <div className="container">
-            <h2 className="titulo">Producto más Vendido</h2>
+            <h2 className="titulo">Producto con Mayores ventas en Lapso</h2>
             <div className="filtros">
                 <label className="label" htmlFor="fechaVenta">
                     Fecha de Venta:
@@ -64,7 +64,7 @@ const Buscador = () => {
 
             {resultado && (
                 <div>
-                    <h3>Resultado:</h3>
+                    <h2>Resultado:</h2>
                     <p>
                         Producto con mayor venta: {resultado.productoMasVendido}
                     </p>
