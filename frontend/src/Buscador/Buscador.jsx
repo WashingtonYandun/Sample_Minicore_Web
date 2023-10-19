@@ -18,7 +18,7 @@ const Buscador = () => {
     const handleBuscarClick = async () => {
         try {
             const response = await axios.post(
-                "https://sample-minicore-web-front.vercel.app/buscar",
+                "https://sample-minicore-web-back.vercel.app/buscar",
                 {
                     fechaVenta,
                     fechaFin,
